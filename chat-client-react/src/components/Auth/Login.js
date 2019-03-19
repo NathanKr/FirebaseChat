@@ -15,11 +15,11 @@ import {
 } from "semantic-ui-react";
 
 const Login = ({ history }) => {
-  const { setUser} = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const [email, setEmail] = useState("natankrasney@gmail.com");
   const [password, setPassword] = useState("123abc");
-  
+
   const login = event => {
     event.preventDefault(); // added because we are not sending the page to the srver
     firebase
@@ -29,12 +29,11 @@ const Login = ({ history }) => {
         console.log(loggedinUser.user);
         setUser({
           displayName: loggedinUser.user.displayName,
-          email,
-          password,
+          uid: loggedinUser.user.uid,
           photoURL: loggedinUser.user.photoURL
         });
         history.push("/");
-      })  
+      })
       .catch(err => {
         console.error(err);
       });

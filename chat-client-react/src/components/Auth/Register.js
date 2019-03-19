@@ -5,11 +5,13 @@ import { appIconName, appName } from "../constants";
 import { UserContext } from "../../context/UserContext";
 
 const Register = ({ history }) => {
-  const { setUser} = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const [email, setEmail] = useState("natankrasney@gmail.com");
   const [password, setPassword] = useState("123abc");
   const [displayName, setDisplayName] = useState("NathanKr");
-  const [photoURL, setPhotoURL] = useState("https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584__340.png");
+  const [photoURL, setPhotoURL] = useState(
+    "https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584__340.png"
+  );
 
   const register = event => {
     event.preventDefault();
@@ -21,11 +23,15 @@ const Register = ({ history }) => {
         createdUser.user
           .updateProfile({
             displayName,
-            photoURL 
+            photoURL
           })
           .then(() => {
             console.log(`updated : ${createdUser}`);
-            setUser({ displayName, email, password, photoURL });
+            setUser({
+              displayName,
+              uid: createdUser.user.displayName,
+              photoURL
+            });
             history.push("/");
           })
           .catch(err => {
@@ -57,7 +63,7 @@ const Register = ({ history }) => {
             <Form.Input
               fluid
               icon="mail"
-              value={email}  // todo nath remove
+              value={email} // todo nath remove
               iconPosition="left"
               placeholder="E-mail address"
               type="email"

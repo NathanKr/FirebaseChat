@@ -10,27 +10,21 @@ import { CurrentRoomContext } from "../context/CurrentRoomContext";
 
 const Root = props => {
   const [currentRoom, setCurrentRoom] = useState(null);
-  // const [user, setUser] = useState({
-  //   displayName: "User",//todo nath , remove in production ??
-  //   email: "natankrasney@gmail.com", //todo nath , remove in production ??
-  //   password: "123abc", //todo nath , remove in production ??
-  //   photoURL: 'https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584__340.png'
-  // });
-
-
+ 
   const [user, setUser] = useState({
-    displayName: "",//todo nath , remove in production ??
-    email: "", //todo nath , remove in production ??
-    password: "", //todo nath , remove in production ??
-    photoURL: ''
+    displayName: "", 
+    uid : "",
+    photoURL: ""
   });
 
-  
   useEffect(() => {
     console.log("mount");
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         console.log("user allready logged in -> navigate to /");
+        const { displayName, uid, photoURL } = user;
+        console.log('onAuthStateChanged',displayName,photoURL);
+        setUser({ displayName, uid , photoURL });
         props.history.push("/");
       } else {
         console.log("user is not logged in -> navigate to /Login");

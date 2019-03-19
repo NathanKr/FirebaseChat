@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { CurrentRoomContext } from "../../context/CurrentRoomContext";
 import { Button } from "semantic-ui-react";
-import firebase from '../../logic/firebase'
+import firebase from "../../logic/firebase";
 
 const MessageSend = ({ getMessagesPerRoomRefFirebase }) => {
   const [messageText, setMessageText] = useState("");
@@ -12,10 +12,9 @@ const MessageSend = ({ getMessagesPerRoomRefFirebase }) => {
   const createMessage = messageId => ({
     id: messageId,
     text: messageText,
-    displayName: user.displayName,
     roomId: currentRoom.id,
-    timestamp : firebase.database.ServerValue.TIMESTAMP,
-    photoURL : user.photoURL
+    timestamp: firebase.database.ServerValue.TIMESTAMP,
+    user: { uid : user.uid ,  photoURL: user.photoURL, displayName: user.displayName }
   });
 
   const sendMessage = () => {
@@ -40,7 +39,12 @@ const MessageSend = ({ getMessagesPerRoomRefFirebase }) => {
         onChange={evt => setMessageText(evt.target.value)}
         type="text"
       />
-      <Button size="medium" circular icon="arrow circle right" onClick={sendMessage}/>
+      <Button
+        size="medium"
+        circular
+        icon="arrow circle right"
+        onClick={sendMessage}
+      />
     </div>
   );
 };

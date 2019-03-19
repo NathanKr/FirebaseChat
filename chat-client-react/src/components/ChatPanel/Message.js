@@ -4,7 +4,8 @@ import { Comment } from "semantic-ui-react";
 
 
 const Message = props => {
-  const { text, displayName, timestamp , photoURL } = props.message;
+  const { text, user , timestamp } = props.message;
+  const {photoURL , displayName} = user;
   const date = moment(timestamp).fromNow();
 
 

@@ -14,11 +14,6 @@ const UserMenu = () => {
       <Dropdown text={user.displayName} as="h4">
         <Dropdown.Menu>
           <Dropdown.Item
-            disabled
-            onClick={() => console.log("clicked on login")}
-            text="Login"
-          />
-          <Dropdown.Item
             onClick={() => {
               firebase
                 .auth()
