@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import "./App.css";
+import "./ChatApp.css";
+
 import SidePanel from "./SidePanel/SidePanel";
 import ChatPanel from "./ChatPanel/ChatPanel";
-//import { UserContext } from "../context/UserContext";
 import { CurrentRoomContext } from "../context/CurrentRoomContext";
 
 const ChatApp = () => {
@@ -15,7 +15,7 @@ const ChatApp = () => {
   // );
 
   return (
-    <div className="App">
+    <div className="ChatApp">
       {<SidePanel />}
       {currentRoom ? <ChatPanel /> : <h3>Please choose a chat room</h3>}
     </div>

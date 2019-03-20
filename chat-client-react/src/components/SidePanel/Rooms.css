@@ -1,0 +1,19 @@
+.rooms-header {
+  display: flex;
+  margin-top: 10px;
+}
+
+.rooms-header > h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.rooms-header > span {
+  background-color: transparent;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.rooms-header > span:hover {
+  cursor: pointer;
+}

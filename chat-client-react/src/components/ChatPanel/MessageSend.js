@@ -3,6 +3,7 @@ import { UserContext } from "../../context/UserContext";
 import { CurrentRoomContext } from "../../context/CurrentRoomContext";
 import { Button } from "semantic-ui-react";
 import firebase from "../../logic/firebase";
+import './MessageSend.css'
 
 const MessageSend = ({ getMessagesPerRoomRefFirebase }) => {
   const [messageText, setMessageText] = useState("");
@@ -33,7 +34,7 @@ const MessageSend = ({ getMessagesPerRoomRefFirebase }) => {
   };
 
   return (
-    <div className="message-send">
+    <div className="MessageSend">
       <input
         value={messageText}
         onChange={evt => setMessageText(evt.target.value)}

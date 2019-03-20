@@ -18,9 +18,15 @@ POC for firebase as
 
 <h2>Todo</h2>
 <ol>
-<li>move all to semantic ui react and center login \ register vertically and change their color ??</li>
+<li>
+<ul>
+problem of progress when no room \ messages
+<li>fix . may be use this solution - https://gist.github.com/anantn/4323949 or check </li>
+<li>check what Barger did </li>
+</ul>
+</li>
+<li>move UI to semantic ui react</li>
 <li>add validation to login \ register and handle authntication errors. consider using custom hook</li>
-<li>add all style to css per file</li>
 <li>send message on enter key</li>
 <li>wrap context in storage component and use useReducer</li>
 <li>is it possible to wrap firebase api and move to logic file</li>

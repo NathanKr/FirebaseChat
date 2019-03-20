@@ -13,7 +13,7 @@ const Messages = ({ messages, messagesLoaded }) => {
     <p>loading from firebase...</p>
   );
 
-  return <div className="messages">{messagesElements}</div>;
+  return <div className="Messages">{messagesElements}</div>;
 };
 
 export default Messages;

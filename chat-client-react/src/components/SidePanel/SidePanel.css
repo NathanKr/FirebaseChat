@@ -1,0 +1,19 @@
+.SidePanel {
+    height: 100vh;
+    width: 15%;
+    min-width: 200px;
+    background-color:#3C2F3E;
+    color:white;
+    padding: 15px;
+  }
+  
+  .SidePanel  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 15px;
+  }
+  
+  .SidePanel  ul > li{
+    cursor: pointer;  
+  }
+  

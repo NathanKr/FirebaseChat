@@ -1,0 +1,11 @@
+.MessageSend {
+  display: flex;
+  padding: 5px;
+  background-color: #fefefe;
+}
+
+.MessageSend > input {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 5px;
+}

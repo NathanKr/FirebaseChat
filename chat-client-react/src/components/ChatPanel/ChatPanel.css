@@ -1,0 +1,11 @@
+.ChatPanel {
+  display: flex;
+  flex-direction: column;
+  background-color: #e9e6ea;
+  width: 85%;
+  height: 100vh;
+}
+
+.ChatPanel > div {
+  margin: 5px;
+}

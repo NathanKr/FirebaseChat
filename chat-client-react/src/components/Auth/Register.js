@@ -44,9 +44,9 @@ const Register = ({ history }) => {
   };
 
   return (
-    <Grid textAlign="center" style={{ height: "100%" }} verticalAlign="middle">
+    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="teal" textAlign="center">
+        <Header as="h2" color="black" textAlign="center">
           <Icon name={appIconName} /> Register to {appName}
         </Header>
         <Form size="large" onSubmit={register}>
@@ -87,7 +87,7 @@ const Register = ({ history }) => {
               type="url"
               onChange={event => setPhotoURL(event.target.value)}
             />
-            <Button color="teal" fluid size="large" type="submit">
+            <Button color="black" fluid size="large" type="submit">
               Register
             </Button>
           </Segment>

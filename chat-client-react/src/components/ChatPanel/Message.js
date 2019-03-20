@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { Comment } from "semantic-ui-react";
+import './Messages.css'
 
 
 const Message = props => {

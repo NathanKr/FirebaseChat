@@ -4,6 +4,7 @@ import { CurrentRoomContext } from "../../context/CurrentRoomContext";
 import CurrentRoom from "./CurrentRoom";
 import Messages from "./Messages";
 import MessageSend from "./MessageSend";
+import './ChatPanel.css'
 
 // -- ChatPanel is invoked only when currentRoom is chosen
 const ChatPanel = () => {
@@ -54,7 +55,7 @@ const ChatPanel = () => {
   };
 
   return (
-    <div className="chat-panel">
+    <div className="ChatPanel">
       <CurrentRoom messages={messages}/>
       <Messages messages={messages} messagesLoaded={messagesLoaded} />
       <MessageSend

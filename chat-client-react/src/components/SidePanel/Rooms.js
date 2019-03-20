@@ -2,7 +2,9 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import { CurrentRoomContext } from "../../context/CurrentRoomContext";
 import ModalAddRoom from "./AddRoomModal";
 import firebase from "../../logic/firebase";
-import Spinner from '../common/Spinner'
+import Spinner from "../common/Spinner";
+import { List } from "semantic-ui-react";
+import "./Rooms.css";
 
 const Rooms = () => {
   const { setCurrentRoom } = useContext(CurrentRoomContext);
@@ -61,7 +63,7 @@ const Rooms = () => {
       ))}
     </ul>
   ) : (
-    <Spinner content="Loading from firebase..."/>
+    <Spinner content="Loading from firebase..." />
   );
 
   return (

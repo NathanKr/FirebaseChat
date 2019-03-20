@@ -1,18 +1,19 @@
 import React from "react";
 import Rooms from "./Rooms";
 import { Icon, Header } from "semantic-ui-react";
-import UserMenu from './UserMenu'
-import {appIconName , appName} from '../constants'
+import UserMenu from "./UserMenu";
+import { appIconName, appName } from "../constants";
+import "./SidePanel.css";
 
 const SidePanel = () => {
   return (
-    <div className="side-panel">
+    <div className="SidePanel">
       <div>
         <Header inverted as="h2">
           <Icon name={appIconName} />
           {appName}
         </Header>
-        <UserMenu/>
+        <UserMenu />
         <Rooms />
       </div>
     </div>
