@@ -12,9 +12,9 @@ const Rooms = () => {
   const [roomsLoaded, setRoomsLoaded] = useState(false);
   const refTo_roomsVariable = useRef(); // --- get reference to rooms variable because callback of setInterval is defined once
 
-  useEffect(() => {
+ // useEffect(() => { not neededd and will cause an issue
     refTo_roomsVariable.current = rooms;
-  }); // --- invoked every render
+ // }); // --- invoked every render
 
   useEffect(() => {
     /* 
