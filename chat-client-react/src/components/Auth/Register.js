@@ -45,7 +45,7 @@ const Register = ({ history }) => {
 
   return (
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 450 }}>
+      <Grid.Column style={{ maxWidth: '450px' }}>
         <Header as="h2" color="black" textAlign="center">
           <Icon name={appIconName} /> Register to {appName}
         </Header>
