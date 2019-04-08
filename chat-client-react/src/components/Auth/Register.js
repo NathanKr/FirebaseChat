@@ -29,7 +29,7 @@ const Register = ({ history }) => {
             console.log(`updated : ${createdUser}`);
             setUser({
               displayName,
-              uid: createdUser.user.displayName,
+              uid: createdUser.user.uid,
               photoURL
             });
             history.push("/");
