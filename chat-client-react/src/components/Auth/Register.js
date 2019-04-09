@@ -54,7 +54,7 @@ const Register = ({ history }) => {
             <Form.Input
               fluid
               icon="user"
-              value={displayName} // todo nath remove
+              value={displayName} // --- use to initialized with state
               iconPosition="left"
               placeholder="Display name"
               type="text"
@@ -63,7 +63,7 @@ const Register = ({ history }) => {
             <Form.Input
               fluid
               icon="mail"
-              value={email} // todo nath remove
+              value={email} // --- use to initialized with state
               iconPosition="left"
               placeholder="E-mail address"
               type="email"
@@ -72,7 +72,7 @@ const Register = ({ history }) => {
             <Form.Input
               fluid
               icon="lock"
-              value={password} // todo nath remove
+              value={password} // --- use to initialized with state
               iconPosition="left"
               placeholder="Password"
               type="password"

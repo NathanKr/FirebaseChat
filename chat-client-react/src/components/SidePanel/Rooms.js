@@ -3,7 +3,6 @@ import { CurrentRoomContext } from "../../context/CurrentRoomContext";
 import ModalAddRoom from "./AddRoomModal";
 import firebase from "../../logic/firebase";
 import Spinner from "../common/Spinner";
-import { List } from "semantic-ui-react";
 import "./Rooms.css";
 
 const Rooms = () => {

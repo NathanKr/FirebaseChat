@@ -1,8 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import firebase from "../../logic/firebase";
 import { appIconName, appName } from "../constants";
 import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
+import {
+  evaluatePasswordError,
+  evaluateEmailError,
+  isFormValid
+} from "../../logic/loginValidators";
 
 import {
   Grid,
@@ -16,12 +21,20 @@ import {
 
 const Login = ({ history }) => {
   const { setUser } = useContext(UserContext);
-
   const [email, setEmail] = useState("natankrasney@gmail.com");
   const [password, setPassword] = useState("123abc");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [firebaseError, setFirebaseError] = useState("");
+
+  useEffect(() => {
+    setEmailError(evaluateEmailError(email));
+    setPasswordError(evaluatePasswordError(email));
+  }, []);
 
   const login = event => {
     event.preventDefault(); // added because we are not sending the page to the srver
+
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -35,7 +48,8 @@ const Login = ({ history }) => {
         history.push("/");
       })
       .catch(err => {
-        console.error(err);
+        console.error(err.message);
+        setFirebaseError(err.message);
       });
   };
 
@@ -50,27 +64,42 @@ const Login = ({ history }) => {
             <Form.Input
               fluid
               icon="mail"
-              value={email} // todo nath remove
+              value={email} // use to initialized with state
               iconPosition="left"
               placeholder="E-mail address"
               type="email"
-              onChange={event => setEmail(event.target.value)}
+              onChange={event => {
+                setEmail(event.target.value);
+                setEmailError(evaluateEmailError(event.target.value));
+              }}
             />
+            {emailError ? <Message negative>{emailError}</Message> : ""}
             <Form.Input
               fluid
               icon="lock"
-              value={password} // todo nath remove
+              value={password} // use to initialized with state
               iconPosition="left"
               placeholder="Password"
               type="password"
-              onChange={event => setPassword(event.target.value)}
+              onChange={event => {
+                setPassword(event.target.value);
+                setPasswordError(evaluatePasswordError(event.target.value));
+              }}
             />
-
-            <Button color="black" fluid size="large" type="submit">
+            {passwordError ? <Message negative>{passwordError}</Message> : ""}
+            <Button
+              disabled={!isFormValid(email, password)}
+              color="black"
+              fluid
+              size="large"
+              type="submit"
+            >
               Login
             </Button>
+            {firebaseError ? <Message negative>{firebaseError}</Message> : ""}
           </Segment>
         </Form>
+
         <Message>
           New to us? <Link to={"/Register"}>Sign Up</Link>
         </Message>
